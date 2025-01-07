@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddle Generator</title>
+  
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e1eff4;
+      }
+      
+      .container {
+        text-align: center;
+      }
+      
+      h1 {
+        color: #333;
+      }
+      
+      .riddle {
+        background-color: #4e8169;
+        padding: 20px;
+        max-width: 5000px;
+        border-radius: 20px;
+       
+       
+      }
+      
+    
+      #riddle-text {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      
+      #answer {
+        font-size: 16px;
+        margin-top: 10px;
+        color: rgb(105, 188, 163);
+      }
+      
+      .hidden {
+        display: none;
+      }
+      
+      .button {
+        font-family: 'Poppins', sans-serif;
+        background-color: #9bb35b;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+       
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+      
+      }
+      
+      
+      
+      .button:hover {
+        background-color: #4f6132;
+      
+      }
+      
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Riddle Generator</h1>
+    <div class="riddle">
+      <p id="riddle-text">What has keys but can't open locks?</p>
+      <button id="generate-btn" class="button">Generate Riddle</button>
+      <button id="answer-btn" class="button hidden">Show Answer</button>
+      <p id="answer" class="hidden">Answer: A piano</p>
+    </div>
+  </div>
+
+  <script>
+    const riddles = [
+    { question: "What has keys but can't open locks?", answer: "A piano" },
+    { question: "I'm tall when I'm young, and I'm short when I'm old. What am I?", answer: "A candle" },
+    { question: "What gets wetter as it dries?", answer: "A towel" },
+    { question: "What has a head, a tail, is brown, and has no legs?", answer: "A penny" },
+    { question: "The more you take, the more you leave behind. What am I?", answer: "Footsteps" },
+    { question: "What can travel around the world while staying in a corner?", answer: "A stamp" },
+    { question: "What has a neck but no head?", answer: "A bottle" },
+    { question: "What comes once in a minute, twice in a moment, but never in a thousand years?", answer: "The letter 'm'" },
+    { question: "What has cities but no houses, forests but no trees, and rivers but no water?", answer: "A map" },
+    { question: "What belongs to you, but other people use it more than you?", answer: "Your name" },
+    { question: "What is full of holes but still holds water?", answer: "A sponge" },
+    { question: "What has a heart that doesn't beat?", answer: "An artichoke" },
+    { question: "What can you catch but not throw?", answer: "A cold" },
+    { question: "What has keys but can't open locks?", answer: "A keyboard" },
+    { question: "What can you break, even if you never pick it up or touch it?", answer: "A promise" },
+    { question: "What has a head, a tail, is brown, and has no legs?", answer: "A coin" },
+    { question: "What is always in front of you but can't be seen?", answer: "The future" }
+  ];
+
+function generateRiddle() {
+    const randomIndex = Math.floor(Math.random() * riddles.length);
+    document.getElementById('riddle-text').textContent = riddles[randomIndex].question;
+    document.getElementById('answer').textContent = riddles[randomIndex].answer;
+}
+
+function showAnswer() {
+    document.getElementById('answer').style.display = 'block';
+}
+
+document.getElementById('generate-btn').addEventListener('click', generateRiddle);
+document.getElementById('answer-btn').addEventListener('click', showAnswer);
+
+// Initial riddle generation
+generateRiddle();
+  </script>
+
+ 
+</body>
+</html>
